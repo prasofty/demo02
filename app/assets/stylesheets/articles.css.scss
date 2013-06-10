@@ -5,11 +5,19 @@
 // index.html.erb
 .articles {
   .article {
-    h4.title {
+    h5.article_title {
       a:hover {
         text-decoration: none;
       }
     }
+
+    p.article_content {
+      text-align: justify;
+    }
+
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    border-bottom: 1px dotted #9A9A9A;
   }
 }
 

@@ -2,13 +2,46 @@
   <div class="span8">
     <div class="page-header">
       <h4 class="article_title clearfix">
-        <%= link_to @article.title.titleize, article_path(@article.id)%>
-        <small>By <%= @article.user.email%> - <%= @article.created_at.strftime("%b %d, %Y %H:%M") %></small>
+        <%= link_to @article.title.titleize, article_path(@article.id)%><br>
+        <small>By <%= @article.user.email%> - <%= @article.created_at.strftime("%a ,%b %d %Y %I:%M %P") %></small>
       </h4>
     </div>
     <p class="lead">
-      <%= @article.content%>
+      <%= raw @article.content.gsub("\n", "<br>")%>
     </p>
+    <p>
+      <small>
+        <% @article.tags.each do |tag| %>
+          <%= link_to tag.name, "#", :class => "label" %>
+        <% end %>
+      </small>
+    </p>
+    <hr>
+    <h4 style="margin-bottom: 20px;">Comments</h4>
+    <div class="comments">
+      <% @article.comments.each do |comment| %>
+        <div class="comment clearfix">
+          <blockquote class="<%= cycle("pull-right", "pull-left") -%>">
+            <p> <%= raw comment.message.gsub("\n", "<br>") %></p>
+            <small>By <%= comment.user.email %> - <%= time_ago_in_words(comment.created_at) %> ago </small>
+          </blockquote>
+        </div>
+      <% end %>
+    </div>
+    <hr>
+    <h4>Add a comment:</h4>
+    <%= form_for([@article, @article.comments.build], :html => { :class =>  'form-vertical' }) do |f| %>
+      <div class="control-group">
+        <div class="controls">
+          <%= f.text_area :message, :class => "span8", :rows => 6, :placeHolder => "Enter your comment" %>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <%= f.submit :submit, :value => "Submit comment", :class => "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
   </div>
   <div class="span4">
 
