@@ -19,9 +19,28 @@
       <%= link_to "Demo02", root_path, :class => "brand" %>
       <div class="nav-collapse collapse pull-right">
         <ul class="nav">
-          <li class="active"><a href="#">Link1</a></li>
-          <li><a href="#">Link2</a></li>
-          <li><a href="#">Link3</a></li>
+          <li class="active">
+            <%= link_to "Articles", articles_path %>
+          </li>
+          <li>
+            <%= link_to "New Article", new_article_path %>
+          </li>
+          <% if current_user %>
+            <li>
+              <%= link_to "Profile", "#" %>
+            </li>
+            <li>
+              <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to "Sign In", new_user_session_path %>
+            </li>
+            <li>
+              <%= link_to "Sign Up", new_user_registration_path %>
+            </li>
+          <% end %>
+
         </ul>
       </div>
       <!--/.nav-collapse -->
@@ -30,7 +49,15 @@
 </div>
 
 <div class="container">
-  <%= yield %>
+  <% flash.each do |name, msg| %>
+    <%= content_tag :div, :class => "alert #{name == :error ? "alert-error" : "alert-success" }" do %>
+      <a class="close" data-dismiss="alert" href="#">×</a>
+      <%= msg %>
+    <% end %>
+  <% end %>
+  <div class="content">
+    <%= yield %>
+  </div>
 </div>
 
 </body>

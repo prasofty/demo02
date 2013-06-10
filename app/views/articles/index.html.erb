@@ -12,13 +12,14 @@
     <div class="articles">
       <% @articles.each do |article| %>
         <div class="article">
-          <h4 class="title clearfix">
+          <h5 class="article_title clearfix">
             <%= link_to article.title.titleize, article_path(article.id)%>
-            <small class="pull-right">By <%= article.user.email%> - <%= article.created_at.strftime("%b %d, %Y %H:%M") %></small>
-          </h4>
-          <p>
+            <br>
+            <small>By <%= article.user.email%> - <%= article.created_at.strftime("%a ,%b %d %Y %I:%M %P") %></small>
+          </h5>
+          <p class="article_content">
             <%= truncate(article.content,
-                         :length => 100,
+                         :length => 400,
                          :omission => '... (continued)') %>
           </p>
         </div>
