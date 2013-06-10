@@ -2,9 +2,20 @@ class ArticlesController < ApplicationController
 
   before_filter :authenticate_user!, :except => [:index, :show]
 
-
   def index
-    @articles = Article.order("updated_at DESC")
+    if params[:tag_name].present?
+      @tag = Tag.where(:name => params[:tag_name]).last
+      @articles = @tag.articles.order("updated_at DESC")
+    elsif params[:user_id].present?
+      @user = User.find(params[:user_id])
+      @articles = @user.articles.order("updated_at DESC")
+    elsif params[:keyword].present?
+      @keyword = params[:keyword]
+      @articles = Article.where("title like '%#{@keyword}%' or content like '%#{@keyword}%'").order("updated_at DESC")
+
+    else
+      @articles = Article.order("updated_at DESC")
+    end
   end
 
   def new

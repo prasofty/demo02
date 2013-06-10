@@ -12,7 +12,7 @@
     <p>
       <small>
         <% @article.tags.each do |tag| %>
-          <%= link_to tag.name, "#", :class => "label" %>
+          <%= link_to tag.name, articles_tag_path(tag.name), :class => "label" %>
         <% end %>
       </small>
     </p>
@@ -21,7 +21,7 @@
     <div class="comments">
       <% @article.comments.each do |comment| %>
         <div class="comment clearfix">
-          <blockquote class="<%= cycle("pull-right", "pull-left") -%>">
+          <blockquote class="">
             <p> <%= raw comment.message.gsub("\n", "<br>") %></p>
             <small>By <%= comment.user.email %> - <%= time_ago_in_words(comment.created_at) %> ago </small>
           </blockquote>
@@ -44,7 +44,14 @@
     <% end %>
   </div>
   <div class="span4">
-
+    <div class="publisher_user">
+      <h4>About Author</h4>
+      <h4><%= @article.user.email%></h4>
+    </div>
+    <hr>
+    <%= raw tag_cloud%>
+    <hr>
+    <%= raw users_list%>
   </div>
 </div>
 

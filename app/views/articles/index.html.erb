@@ -1,8 +1,8 @@
 <div class="page-header clearfix">
   <h4 class="pull-left">Articles</h4>
-  <%= form_tag articles_path, :class => "form-search pull-right", :style => "margin-bottom:0;" do %>
+  <%= form_tag articles_path, :method => :get, :class => "form-search pull-right", :style => "margin-bottom:0;" do %>
       <div class="input-append">
-        <%= text_field_tag :keyword, "", :class => "span2 search-query" %>
+        <%= text_field_tag :keyword, params[:keyword], :class => "span2 search-query" %>
         <button type="submit" class="btn">Search</button>
       </div>
   <% end %>
@@ -30,5 +30,9 @@
     <div class="btn-toolbar clearfix">
       <%= link_to "New Article", new_article_path, :class => "btn btn-primary span2", :style => "margin-left:90px;" %>
     </div>
+    <hr>
+    <%= raw tag_cloud%>
+    <hr>
+    <%= raw users_list%>
   </div>
 </div>

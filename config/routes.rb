@@ -1,5 +1,7 @@
 Demo02::Application.routes.draw do
 
+  match "articles/user/:user_id" => "articles#index", :as => 'user_articles'
+  match "articles/tag/:tag_name" => "articles#index", :as => 'articles_tag'
   resources :articles do
     resources :comments
   end
