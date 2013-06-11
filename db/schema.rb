@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130610055243) do
+ActiveRecord::Schema.define(:version => 20130611055521) do
 
   create_table "articles", :force => true do |t|
     t.integer  "user_id"
@@ -34,6 +34,21 @@ ActiveRecord::Schema.define(:version => 20130610055243) do
     t.text     "message"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "profiles", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.date     "dob"
+    t.string   "location"
+    t.text     "about_me"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
   create_table "tags", :force => true do |t|

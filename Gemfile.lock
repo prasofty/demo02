@@ -32,6 +32,10 @@ GEM
     bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-x86-mingw32)
     builder (3.0.4)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.1)
+      climate_control (>= 0.0.3, < 1.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -62,6 +66,12 @@ GEM
     mime-types (1.23)
     multi_json (1.7.6)
     orm_adapter (0.4.0)
+    paperclip (3.4.2)
+      activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.0)
+      mime-types
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -118,6 +128,9 @@ GEM
       multi_json (~> 1.0, >= 1.0.2)
     warden (1.2.1)
       rack (>= 1.0)
+    will_paginate (3.0.4)
+    will_paginate-bootstrap (0.2.3)
+      will_paginate (>= 3.0.3)
 
 PLATFORMS
   ruby
@@ -128,9 +141,12 @@ DEPENDENCIES
   devise
   dynamic_form
   jquery-rails
+  paperclip
   rails (= 3.2.13)
   sass-rails (~> 3.2.3)
   simple_form
   sqlite3
   therubyracer
   uglifier (>= 1.0.3)
+  will_paginate (~> 3.0)
+  will_paginate-bootstrap

@@ -12,7 +12,6 @@ class ArticlesController < ApplicationController
     elsif params[:keyword].present?
       @keyword = params[:keyword]
       @articles = Article.where("title like '%#{@keyword}%' or content like '%#{@keyword}%'").order("updated_at DESC")
-
     else
       @articles = Article.order("updated_at DESC")
     end
