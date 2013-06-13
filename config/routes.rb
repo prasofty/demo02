@@ -1,5 +1,11 @@
 Demo02::Application.routes.draw do
 
+  resources :patients
+
+
+  resources :appointments
+
+
   resources :profiles
 
 
