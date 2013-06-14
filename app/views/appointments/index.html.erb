@@ -1,0 +1,54 @@
+<div class="page-header">
+  <h4>Appointments</h4>
+</div>
+<div class="row">
+  <div class="span2">
+    <ul class="nav nav-pills nav-stacked">
+      <li class="active">
+        <%= link_to "Appointments", appointments_path %>
+      </li>
+      <li>
+        <%= link_to "Patients", patients_path %>
+      </li>
+      <li>
+        <%= link_to "Appointments", appointments_path %>
+      </li>
+    </ul>
+  </div>
+  <div class="span10"></div>
+
+</div>
+
+<table>
+  <tr>
+    <th>Doctor</th>
+    <th>Patient</th>
+    <th>Appointment start time</th>
+    <th>Duration</th>
+    <th>Appointment end time</th>
+    <th>Closed</th>
+    <th>Comment</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @appointments.each do |appointment| %>
+  <tr>
+    <td><%= appointment.doctor_id %></td>
+    <td><%= appointment.patient_id %></td>
+    <td><%= appointment.appointment_start_time %></td>
+    <td><%= appointment.duration %></td>
+    <td><%= appointment.appointment_end_time %></td>
+    <td><%= appointment.closed %></td>
+    <td><%= appointment.comment %></td>
+    <td><%= link_to 'Show', appointment %></td>
+    <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
+    <td><%= link_to 'Destroy', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Appointment', new_appointment_path %>

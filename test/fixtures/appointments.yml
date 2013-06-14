@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  doctor_id: 1
+  patient_id: 1
+  appointment_start_time: 2013-06-13 21:07:14
+  duration: 1
+  appointment_end_time: 2013-06-13 21:07:14
+  closed: false
+  comment: MyText
+
+two:
+  doctor_id: 1
+  patient_id: 1
+  appointment_start_time: 2013-06-13 21:07:14
+  duration: 1
+  appointment_end_time: 2013-06-13 21:07:14
+  closed: false
+  comment: MyText

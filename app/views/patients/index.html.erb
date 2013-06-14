@@ -1,0 +1,51 @@
+<div class="page-header">
+  <h4>Patients</h4>
+</div>
+<div class="row">
+  <div class="span2">
+    <ul class="nav nav-pills nav-stacked">
+      <li>
+        <%= link_to "Appointments", appointments_path %>
+      </li>
+      <li class="active">
+        <%= link_to "Patients", patients_path %>
+      </li>
+      <li>
+        <%= link_to "Appointments", appointments_path %>
+      </li>
+    </ul>
+  </div>
+  <div class="span10">
+    <div class="btn-toolbar">
+      <%= link_to "Add Patient", new_patient_path, :class => "btn btn-primary"%>
+    </div>
+  </div>
+</div>
+
+<table>
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Dob</th>
+    <th>Location</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @patients.each do |patient| %>
+  <tr>
+    <td><%= patient.first_name %></td>
+    <td><%= patient.last_name %></td>
+    <td><%= patient.dob %></td>
+    <td><%= patient.location %></td>
+    <td><%= link_to 'Show', patient %></td>
+    <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
+    <td><%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Patient', new_patient_path %>
