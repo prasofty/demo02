@@ -1,0 +1,26 @@
+<p>
+  <b>First name:</b>
+  <%= @profile.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= @profile.last_name %>
+</p>
+
+<p>
+  <b>Dob:</b>
+  <%= @profile.dob %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @profile.location %>
+</p>
+
+<p>
+  <b>About me:</b>
+  <%= @profile.about_me %>
+</p>
+
+<%= link_to 'Edit', edit_profile_path(@profile), :class => "btn btn-primary" %>

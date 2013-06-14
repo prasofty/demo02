@@ -1,0 +1,34 @@
+<%= simple_form_for(@profile) do |f| %>
+  <%= f.error_messages %>
+
+  <div class="form-inputs">
+    <%= f.simple_fields_for :user do |u| %>
+      <%= u.input :email, :required => true %>
+    <% end %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :dob, :as => :string %>
+    <%= f.input :location %>
+    <%= f.input :about_me, :input_html => {:class => 'span6', :rows => 7, :placeHolder => "Enter something about your self"} %>
+    <%= f.input :picture %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => "btn btn-primary" %>
+    <% unless @profile.new_record? %>
+      <%= link_to 'Back', profile_path(@profile), :class => "btn" %>
+    <% end %>
+  </div>
+<% end %>
+
+<%= javascript_tag do %>
+  var dob = "<%= @profile.dob %>";
+<% end %>
+
+<script>
+  $('#profile_dob').datepicker({
+    changeMonth: true,
+    changeYear: true,
+    yearRange: '1960:2001'
+  }).datepicker( "option", "dateFormat", "yy-mm-dd").datepicker("setDate", dob);
+</script>
