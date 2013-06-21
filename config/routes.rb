@@ -1,5 +1,8 @@
 Demo02::Application.routes.draw do
 
+  resources :books
+
+
   resources :patients
 
 
@@ -17,6 +20,8 @@ Demo02::Application.routes.draw do
 
 
   devise_for :users
+
+  match "/about" => "home#about", :as => "about"
 
   root :to => "home#index"
 

@@ -20,3 +20,7 @@ body {
 }
 
 
+.content {
+    min-height: 400px;
+}
+
