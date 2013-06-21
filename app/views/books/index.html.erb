@@ -1,3 +1,13 @@
+<% content_for :head do %>
+  <script type="text/javascript">
+    console.log("yield head");
+  </script>
+<% end %>
+
+<script type="text/javascript">
+  console.log("index books");
+</script>
+
 <h1>Listing books</h1>
 
 <table>
@@ -8,18 +18,15 @@
     <th></th>
     <th></th>
   </tr>
+<%= render @books %>
 
-<% @books.each do |book| %>
-  <tr>
-    <td><%= book.title %></td>
-    <td><%= book.description %></td>
-    <td><%= link_to 'Show', book %></td>
-    <td><%= link_to 'Edit', edit_book_path(book) %></td>
-    <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Book', new_book_path %>
+<%= link_to 'New Book', new_book_path %> |
+<%= link_to 'Add Books', multi_new_books_path %>
+
+<hr>
+
+<%= link_to 'Action02', action02_books_path %>

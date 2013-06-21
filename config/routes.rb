@@ -1,6 +1,13 @@
 Demo02::Application.routes.draw do
 
-  resources :books
+  resources :books do
+    collection do
+      get 'all'
+      get 'action01'
+      get 'action02'
+      get 'multi_new'
+    end
+  end
 
 
   resources :patients

@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+  #layout "static"
+
   # GET /books
   # GET /books.json
   def index
@@ -7,6 +9,8 @@ class BooksController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @books }
+      format.xml { render xml: @books }
+      format.js { render js: "alert('hello world')" }
     end
   end
 
@@ -79,5 +83,29 @@ class BooksController < ApplicationController
       format.html { redirect_to books_url }
       format.json { head :no_content }
     end
+  end
+
+  def all
+    @books = Book.all
+  end
+
+  def action01
+    #flash[:success] = "success"
+    flash[:info] = "info"
+    flash[:error] = "error"
+    flash[:notice] = "notice"
+    flash[:other] = "other"
+
+    #redirect_to :back
+    redirect_to action02_books_path(name: 'test', loc: 'test1')#, :notice => "success msg"
+  end
+
+  def action02
+    #flash[:notice] = "notice"
+    #flash[:xyz] = "alert"
+  end
+
+  def multi_new
+
   end
 end

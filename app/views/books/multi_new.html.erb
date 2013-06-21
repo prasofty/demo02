@@ -1,0 +1,11 @@
+<%= form_for(:book, :url => books_path) do |f| %>
+  <% (1..5).each do |i| %>
+    <p>
+      Title: <%= f.text_field :title  %><br>
+      Desc : <%= f.text_field :description  %>
+    </p>
+  <% end %>
+
+  <%= f.submit "Add Books" %>
+
+<% end %>

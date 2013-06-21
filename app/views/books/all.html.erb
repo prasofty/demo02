@@ -1,0 +1,21 @@
+<table>
+  <%= render :partial => 'book', :collection => @books %>
+</table>
+
+<hr>
+
+<%= render :partial => "display_books", :collection => @books, :as => :item%>
+
+<hr>
+
+<%= render :partial => "test1", :locals => {:name => "one"} %>
+
+<hr>
+
+<%= render :partial => "test1", :layout => "test2", :locals => {:name => "test2 layout"} %>
+
+<hr>
+
+<%= link_to "action01", action01_books_path %>
+
+<hr>
