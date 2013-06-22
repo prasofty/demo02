@@ -106,6 +106,13 @@ class BooksController < ApplicationController
   end
 
   def multi_new
+    @books = []
+    5.times {|x| @books << Book.new}
+  end
 
+  def save_multi
+    #raise params.to_yaml
+    Book.create(params[:book])
+    redirect_to multi_new_books_path
   end
 end

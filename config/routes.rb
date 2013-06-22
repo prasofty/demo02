@@ -6,6 +6,7 @@ Demo02::Application.routes.draw do
       get 'action01'
       get 'action02'
       get 'multi_new'
+      post 'save_multi'
     end
   end
 

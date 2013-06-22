@@ -1,11 +1,11 @@
-<%= form_for(:book, :url => books_path) do |f| %>
-  <% (1..5).each do |i| %>
-    <p>
-      Title: <%= f.text_field :title  %><br>
-      Desc : <%= f.text_field :description  %>
-    </p>
-  <% end %>
+<%= form_tag(save_multi_books_path) do %>
+    <% for book in @books %>
+       <p>
+         <%= fields_for "book[]", book do |f| %>
+            Title <%= f.text_field :title %>
+         <% end%>
+       </p>
+    <% end %>
 
-  <%= f.submit "Add Books" %>
-
+        <p><%= submit_tag "Submit" %></p>
 <% end %>
