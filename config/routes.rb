@@ -10,9 +10,17 @@ Demo02::Application.routes.draw do
     end
   end
 
+  resources :doctors
 
-  resources :patients
-
+  resources :patients do
+    get "method_one"
+    member do
+      get "method_two"
+    end
+    collection do
+      get "method_three"
+    end
+  end
 
   resources :appointments
 
@@ -20,12 +28,12 @@ Demo02::Application.routes.draw do
   resources :profiles
 
 
+  match "xyz_one" => "articles#my_action2", :as => "my_action"
   match "articles/user/:user_id" => "articles#index", :as => 'user_articles'
   match "articles/tag/:tag_name" => "articles#index", :as => 'articles_tag'
   resources :articles do
     resources :comments
   end
-
 
   devise_for :users
 

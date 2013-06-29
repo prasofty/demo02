@@ -49,3 +49,13 @@
 <br />
 
 <%= link_to 'New Patient', new_patient_path %>
+
+
+<hr>
+<%= link_to "method_1", patient_method_one_path(1, :x => 1, :y => "new") %>
+ccc
+<br>
+<%= link_to "method_2", method_two_patient_path(2) %>
+<br>
+
+<%= link_to "method_3", method_three_patients_path %>

@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 
-  before_filter :authenticate_user!, :except => [:index, :show]
+  before_filter :authenticate_user!, :except => [:index, :show, :my_action]
 
   def index
     if params[:tag_name].present?
@@ -55,6 +55,10 @@ class ArticlesController < ApplicationController
     @article.destroy
 
     redirect_to articles_url
+  end
+
+  def my_action
+
   end
 end
 

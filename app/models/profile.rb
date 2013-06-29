@@ -22,10 +22,11 @@ class Profile < ActiveRecord::Base
             :length => {
               :minimum => 3,
               :maximum => 15
-            }
+            }, :on => :update
 
   validates :dob,
-            :presence => true
+            :presence => true,
+            :on => :update
 
   validates :about_me,
             :length => {
@@ -34,7 +35,8 @@ class Profile < ActiveRecord::Base
               :tokenizer => lambda { |str| str.scan(/\w+/) },
               :too_short => "must have at least %{count} words",
               :too_long => "must have at most %{count} words"
-            }
+            },
+            :on => :update
 
   belongs_to :user
 

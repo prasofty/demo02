@@ -80,4 +80,16 @@ class PatientsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def method_one
+
+  end
+
+  def method_two
+
+  end
+
+  def method_three
+
+  end
 end
