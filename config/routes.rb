@@ -7,6 +7,9 @@ Demo02::Application.routes.draw do
       get 'action02'
       get 'multi_new'
       post 'save_multi'
+      get 'add_author'
+      post 'save_author'
+      get 'add_page'
     end
   end
 

@@ -10,6 +10,20 @@
   <%= @book.description %>
 </p>
 
+<p>
+  <b>Author</b>
+  <%= @book.author.author_name %>
+</p>
+
+<h4>Pages</h4>
+<table>
+  <% @book.pages.each do |page| %>
+    <tr>
+      <td><%= page.page_no%></td>
+      <td><%= page.page_info%></td>
+    </tr>
+  <% end %>
+</table>
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>

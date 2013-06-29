@@ -1,0 +1,6 @@
+<%= simple_form_for(@author, :url => save_author_books_path) do |f|%>
+    <%= f.input_field :book_id, :as => :hidden %>
+    <%= f.input :author_name %>
+
+    <%= f.submit %>
+<% end %>

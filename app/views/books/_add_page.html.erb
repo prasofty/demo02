@@ -1,0 +1,7 @@
+<%= simple_fields_for Book, :pages do |p| %>
+    <%= p.input :page_no%>
+    <%= p.input :page_info%>
+    <% unless @book.new_record? %>
+        <%= p.input :_destroy, :as => :boolean %>
+    <% end %>
+<% end %>

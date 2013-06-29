@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130615045718) do
+ActiveRecord::Schema.define(:version => 20130629060055) do
 
   create_table "appointments", :force => true do |t|
     t.integer  "doctor_id"
@@ -40,6 +40,13 @@ ActiveRecord::Schema.define(:version => 20130615045718) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "authors", :force => true do |t|
+    t.integer  "book_id"
+    t.string   "author_name"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "books", :force => true do |t|
     t.string   "title"
     t.text     "description"
@@ -59,6 +66,14 @@ ActiveRecord::Schema.define(:version => 20130615045718) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "degree"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "pages", :force => true do |t|
+    t.integer  "book_id"
+    t.integer  "page_no"
+    t.string   "page_info"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

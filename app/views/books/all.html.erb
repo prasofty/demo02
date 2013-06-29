@@ -8,14 +8,17 @@
 
 <hr>
 
-<%= render :partial => "test1", :locals => {:name => "one"} %>
+<%= render :partial => "test1", :locals => {:name => "this is my name"} %>
 
 <hr>
 
-<%= render :partial => "test1", :layout => "test2", :locals => {:name => "test2 layout"} %>
+<%= render :partial => "test1", :layout => "test2",:locals => {:name => "test2 layout"} %>
 
 <hr>
 
 <%= link_to "action01", action01_books_path %>
 
 <hr>
+
+<%= render :partial => "books/xyz", :locals => {:var_xyz => @var_xyz } %>
+
