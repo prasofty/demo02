@@ -1,4 +1,4 @@
-<%= simple_fields_for Book, :pages do |p| %>
+<%= simple_fields_for "book[pages_attributes][#{Time.now.to_i}]", @page do |p| %>
     <%= p.input :page_no%>
     <%= p.input :page_info%>
     <% unless @book.new_record? %>

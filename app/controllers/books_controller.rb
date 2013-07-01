@@ -152,6 +152,6 @@ class BooksController < ApplicationController
 
   def add_page
     @book = Book.new
-    @book.pages.build
+    @page = @book.pages.build
   end
 end
