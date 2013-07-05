@@ -1,4 +1,4 @@
-<%= simple_form_for(@book) do |f| %>
+<%= simple_form_for(@book, :url => @book.new_record? ? admin_books_path : admin_book_path(@book)) do |f| %>
   <%= f.error_messages %>
   <div class="form-inputs">
     <%= f.input :title %>
@@ -17,7 +17,7 @@
         </div>
         <% end %>
     </div>
-    <%= link_to "add more", add_page_books_path, :remote => true %>
+    <%= link_to "add more", add_page_admin_books_path, :remote => true %>
   </div>
 
   <div class="form-actions">

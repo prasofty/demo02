@@ -1,0 +1,27 @@
+<h1>All Books</h1>
+
+<table class="table table-bordered">
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>author_name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% @books.each do |book| %>
+    <tr>
+      <td><%= book.title %></td>
+      <td><%= book.description %></td>
+      <td><%= book.author.author_name rescue '' %></td>
+      <td><%= link_to 'Show', admin_book_path(book) %></td>
+      <td><%= link_to 'Edit', edit_admin_book_path(book) %></td>
+      <td><%= link_to 'Destroy', admin_book_path(book), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+
+
+

@@ -1,5 +1,14 @@
 Demo02::Application.routes.draw do
 
+  match 'admin' => 'admin#index'
+  namespace :admin do
+    resources :books do
+      collection do
+        get 'add_page'
+      end
+    end
+  end
+
   resources :books do
     collection do
       get 'all'
@@ -9,7 +18,6 @@ Demo02::Application.routes.draw do
       post 'save_multi'
       get 'add_author'
       post 'save_author'
-      get 'add_page'
     end
   end
 
@@ -27,9 +35,7 @@ Demo02::Application.routes.draw do
 
   resources :appointments
 
-
   resources :profiles
-
 
   match "xyz_one" => "articles#my_action2", :as => "my_action"
   match "articles/user/:user_id" => "articles#index", :as => 'user_articles'

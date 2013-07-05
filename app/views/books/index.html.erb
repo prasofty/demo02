@@ -10,13 +10,11 @@
 
 <h1>Listing books</h1>
 
-<table>
+<table class="table table-bordered">
   <tr>
     <th>Title</th>
     <th>Description</th>
     <th>author_name</th>
-    <th></th>
-    <th></th>
     <th></th>
   </tr>
 <%= render @books %>
@@ -25,8 +23,8 @@
 
 <br />
 
-<%= link_to 'New Book', new_book_path %> |
-<%= link_to 'Add Books', multi_new_books_path %>
+<%#= link_to 'New Book', new_book_path %> |
+<%#= link_to 'Add Books', multi_new_books_path %>
 
 <hr>
 

@@ -1,8 +1,6 @@
 <tr>
   <td><%= book.title %></td>
   <td><%= book.description %></td>
-  <td><%= book.author.author_name rescue '' %></td>
+  <td><%= book.author.try(:author_name) %></td>
   <td><%= link_to 'Show', book %></td>
-  <td><%= link_to 'Edit', edit_book_path(book) %></td>
-  <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 </tr>
