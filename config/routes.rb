@@ -18,6 +18,7 @@ Demo02::Application.routes.draw do
       post 'save_multi'
       get 'add_author'
       post 'save_author'
+      get 'cache_example'
     end
   end
 

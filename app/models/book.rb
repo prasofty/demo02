@@ -10,4 +10,13 @@ class Book < ActiveRecord::Base
   accepts_nested_attributes_for :pages,
                                 reject_if: proc { |attributes| attributes['page_no'].blank? },
                                 :allow_destroy => true
+
+  def self.latest_updated_books
+    books = Rails.cache.read "latest_books"
+    unless books
+      books = self.order("updated_at desc").limit(3).to_a
+      Rails.cache.write "latest_books", books, :expires_in => 1.minutes
+    end
+    books
+  end
 end

@@ -35,14 +35,12 @@ class BooksController < ApplicationController
 
     debugger
 
-
     respond_to do |format|
       format.html { render :all}
       format.json {  render :json => @books}
       format.xml { render :xml => @books}
       format.js #{render :js => "alert(#{@books.last.title})"}
     end
-
 
   end
 
@@ -86,6 +84,19 @@ class BooksController < ApplicationController
     Author.create(params[:author])
     flash[:success] = "auther created succesfully"
     redirect_to @book
+  end
+
+  def cache_example
+
+    @book = Book.find 4
+    logger.debug @book
+    @book = Book.find 4
+    logger.debug @book
+    logger.debug "----------------"
+    @book = Book.find 3
+    logger.debug @book
+
+    @time = Time.now
   end
 
 end

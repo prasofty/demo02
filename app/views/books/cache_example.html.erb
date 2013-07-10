@@ -1,0 +1,16 @@
+<div class="page-header" xmlns="http://www.w3.org/1999/html">
+  <h4>Page Cache</h4>
+</div>
+
+<%= Rails.cache.read "test1" %>
+
+<hr>
+
+<%= Book.latest_updated_books.collect{ |b| [b.id, b.updated_at]} %>
+
+<hr>
+
+<h4><%= @time %></h4> <br>
+<% cache("time_key", :expires_in => 1.minute) do %>
+  <%= @time %>
+<% end %>
